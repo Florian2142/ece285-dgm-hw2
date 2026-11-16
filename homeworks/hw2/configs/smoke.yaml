@@ -1,0 +1,19 @@
+# A 1-minute end-to-end check of the pipeline (not a real experiment):
+#   uv run python -m hw2.train --config homeworks/hw2/configs/smoke.yaml
+#   uv run python -m hw2.evaluate
+name: smoke
+
+data:
+  image_size: 64
+  batch_size: 64
+
+train:
+  epochs: 2
+  max_batches_per_epoch: 5
+  sample_every: 1
+  fid_every: 1
+  fid_samples: 128
+
+eval:
+  num_samples: 128
+  repeats: 1

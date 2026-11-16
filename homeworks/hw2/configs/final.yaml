@@ -1,0 +1,41 @@
+# The reported model `final` (seed 0): the winners of the grids in notebook 02, section 16
+# (runs/hw2/f_setting.json): hinge loss, flips, width 128, 60 epochs, on the base (EMA 0.999, dead-game stop).
+# Seeds 1 and 2: add train.seed=1 or train.seed=2 on the command line.
+#   uv run python -m hw2.train --config homeworks/hw2/configs/final.yaml
+#   uv run python -m hw2.evaluate
+name: final
+data:
+  image_size: 64
+  batch_size: 128
+  num_workers: 0
+  styles: []
+model:
+  latent_dim: 100
+  g_channels: 128
+  d_channels: 128
+  init: dcgan
+train:
+  epochs: 60
+  loss: hinge
+  lr_g: 0.0002
+  lr_d: 0.0002
+  beta1: 0.5
+  beta2: 0.999
+  hflip: true
+  ema_decay: 0.999
+  seed: 0
+  device: auto
+  sample_every: 1
+  fid_every: 5
+  fid_samples: 2000
+  max_batches_per_epoch: 0
+  stop_dead_epochs: 2
+eval:
+  checkpoint: best
+  use_ema: true
+  reference_split: test
+  num_samples: 10000
+  repeats: 3
+  batch_size: 128
+  real_baseline: true
+  seed: 1234

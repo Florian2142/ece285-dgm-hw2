@@ -1,0 +1,36 @@
+name: r-lrd1e-4
+data:
+  image_size: 64
+  batch_size: 128
+  num_workers: 0
+  styles: []
+model:
+  latent_dim: 100
+  g_channels: 64
+  d_channels: 64
+  init: dcgan
+train:
+  epochs: 30
+  loss: nonsaturating
+  lr_g: 0.0002
+  lr_d: 0.0001
+  beta1: 0.5
+  beta2: 0.999
+  hflip: false
+  ema_decay: 0.999
+  seed: 0
+  device: auto
+  sample_every: 1
+  fid_every: 5
+  fid_samples: 2000
+  max_batches_per_epoch: 0
+  stop_dead_epochs: 2
+eval:
+  checkpoint: best
+  use_ema: true
+  reference_split: test
+  num_samples: 10000
+  repeats: 3
+  batch_size: 128
+  real_baseline: true
+  seed: 1234

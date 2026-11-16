@@ -1,0 +1,29 @@
+{
+  "decisions": {
+    "loss": "hinge",
+    "R": "r-hflip",
+    "A": "a-width128",
+    "epochs": 60
+  },
+  "settings": {
+    "image_size": 64,
+    "batch_size": 128,
+    "styles": [],
+    "latent_dim": 100,
+    "g_channels": 128,
+    "d_channels": 128,
+    "init": "dcgan",
+    "epochs": 60,
+    "loss": "hinge",
+    "lr_g": 0.0002,
+    "lr_d": 0.0002,
+    "beta1": 0.5,
+    "beta2": 0.999,
+    "hflip": true,
+    "ema_decay": 0.999,
+    "seed": 0,
+    "stop_dead_epochs": 2,
+    "fid_every": 5,
+    "fid_samples": 2000
+  }
+}

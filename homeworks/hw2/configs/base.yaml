@@ -1,0 +1,36 @@
+# Baseline HW2 run: a DCGAN-style setup. Defaults and comments: homeworks/hw2/config.py.
+# Override anything on the command line, for example:
+#   uv run python -m hw2.train train.loss=hinge train.ema_decay=0.999 name=gan-hinge
+name: gan-base
+
+data:
+  image_size: 64
+  batch_size: 128
+  styles: [] # [] = all 27 styles
+
+model:
+  latent_dim: 100
+  g_channels: 64
+  d_channels: 64
+  init: dcgan
+
+train:
+  epochs: 30
+  loss: nonsaturating
+  lr_g: 2.0e-4
+  lr_d: 2.0e-4
+  beta1: 0.5
+  beta2: 0.999
+  hflip: false
+  ema_decay: 0.0
+  seed: 0
+  sample_every: 1
+  fid_every: 5
+  fid_samples: 2000
+
+eval:
+  checkpoint: best
+  use_ema: true
+  reference_split: test
+  num_samples: 10000 # FID-10k
+  repeats: 3

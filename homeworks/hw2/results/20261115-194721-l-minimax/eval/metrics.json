@@ -1,0 +1,38 @@
+{
+  "run": "20261115-194721-l-minimax",
+  "checkpoint": "best",
+  "weights": "ema",
+  "reference_split": "test",
+  "num_samples": 10000,
+  "repeats": 1,
+  "seed": 1234,
+  "preprocessing": "PIL bilinear 299x299, RGB, [0,1]; torchvision Inception-v3",
+  "scores": {
+    "fid": "ignite FID() default as in the tutorial: 1000-d class probabilities",
+    "fid_2048": "ignite FID on 2048-d pool features (standard definition)",
+    "inception_score": "ignite InceptionScore() default"
+  },
+  "samples": {
+    "fid": {
+      "mean": 0.09971131462609177,
+      "std": 0.0,
+      "values": [
+        0.09971131462609177
+      ]
+    },
+    "fid_2048": {
+      "mean": 348.04964976359514,
+      "std": 0.0,
+      "values": [
+        348.04964976359514
+      ]
+    },
+    "inception_score": {
+      "mean": 1.002290577854874,
+      "std": 0.0,
+      "values": [
+        1.002290577854874
+      ]
+    }
+  }
+}
